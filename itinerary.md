@@ -35,8 +35,8 @@ London ──(~12h direct)──> Hong Kong ──(via Kunming)──> Jinghong 
 - **Tue 7 Jul** — [TODO] Depart Beijing for London (David's flight is 14:15; James return flexible — confirm).
 
 ## Open questions / assumptions
-1. **Beijing dates** — David's note says "arrive Wednesday 04:45, leave Tuesday 14:15". Assumed **Wed 1 Jul → Tue 7 Jul** (David goes Munich→Beijing directly, not via ATBC). James joins the weekend of 4–5 Jul after ATBC. **Confirm with David.**
+1. **Beijing dates** — **Confirmed** from David's itinerary: arrives **Wed 1 Jul** (Air China CA962, MUC 13:00→PEK 04:45+1) and departs **Tue 7 Jul** (Air China CA631, PEK 14:15→London Gatwick 18:25). James joins the weekend of 4–5 Jul after ATBC.
 2. **HK arrival date** — Assumed 23 Jun to use all 4 HKU-covered nights. Could arrive 24 Jun if preferred.
 3. **HK→Jinghong group flight** — HKU group travels together; confirm exact date/flight with Chuying (assumed 27 Jun).
-4. **Return from Beijing** — fly with David on 7 Jul, or stay longer? Currently assumed 7 Jul.
+4. **Return from Beijing** — assumed 7 Jul. Open choice: travel with David on **CA631 to Gatwick** (14:15→18:25), take own **CA937 to Heathrow** (easier coach to Cambridge), or stay longer.
 5. **ATBC own talk** — slot/time from the ATBC acceptance not yet in this plan; add when known.
