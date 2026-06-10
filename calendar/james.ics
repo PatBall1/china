@@ -1,0 +1,130 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//china-trip//provisional calendar//EN
+X-WR-CALNAME:China 2026 — James
+BEGIN:VEVENT
+SUMMARY:✈ LHR → Hong Kong (overnight)
+DTSTART;TZID=Europe/London:20260622T210000
+DTEND;TZID=Asia/Shanghai:20260623T164500
+DTSTAMP:20260610T123128Z
+UID:china2026-james-00@patball1.github.io
+DESCRIPTION:Direct ~12h. Provisional time.\n\nProvisional - subject to con
+ firmation (flights unbooked).
+LOCATION:London Heathrow → HKG
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Check in — JEN Hotel (HKU)
+DTSTART;VALUE=DATE:20260623
+DTEND;VALUE=DATE:20260624
+DTSTAMP:20260610T123128Z
+UID:china2026-james-01@patball1.github.io
+DESCRIPTION:HKU-covered\, 5 min from campus.\n\nProvisional - subject to c
+ onfirmation (flights unbooked).
+LOCATION:JEN Hotel\, Hong Kong
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:● HK pre-ATBC workshop — Day 1
+DTSTART;VALUE=DATE:20260624
+DTEND;VALUE=DATE:20260625
+DTSTAMP:20260610T123128Z
+UID:china2026-james-02@patball1.github.io
+DESCRIPTION:Provisional - subject to confirmation (flights unbooked).
+LOCATION:HKU
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:● HK pre-ATBC workshop — Day 2
+DTSTART;VALUE=DATE:20260625
+DTEND;VALUE=DATE:20260626
+DTSTAMP:20260610T123128Z
+UID:china2026-james-03@patball1.github.io
+DESCRIPTION:Provisional - subject to confirmation (flights unbooked).
+LOCATION:HKU
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:★ Keynote — Frontiers in RS & AI in Ecology
+DTSTART;TZID=Asia/Shanghai:20260626T093000
+DTEND;TZID=Asia/Shanghai:20260626T100000
+DTSTAMP:20260610T123128Z
+UID:china2026-james-04@patball1.github.io
+DESCRIPTION:17 min talk + 3 min Q&A. Morning session.\n\nProvisional - sub
+ ject to confirmation (flights unbooked).
+LOCATION:HKU
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:✈ HKG → Jinghong (via Kunming) w/ HKU group
+DTSTART;VALUE=DATE:20260627
+DTEND;VALUE=DATE:20260628
+DTSTAMP:20260610T123128Z
+UID:china2026-james-05@patball1.github.io
+DESCRIPTION:No direct flight\; connect in Kunming.\n\nProvisional - subjec
+ t to confirmation (flights unbooked).
+LOCATION:HKG → KMG → JHG
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:● ATBC 2026 — registration + opening
+DTSTART;VALUE=DATE:20260628
+DTEND;VALUE=DATE:20260629
+DTSTAMP:20260610T123128Z
+UID:china2026-james-06@patball1.github.io
+DESCRIPTION:Provisional - subject to confirmation (flights unbooked).
+LOCATION:Mekong River Jing Land Hotel\, Jinghong
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:● ATBC 2026 — sessions
+DTSTART;VALUE=DATE:20260629
+DTEND;VALUE=DATE:20260703
+DTSTAMP:20260610T123128Z
+UID:china2026-james-07@patball1.github.io
+DESCRIPTION:Keynotes\, symposia\, posters.\n\nProvisional - subject to con
+ firmation (flights unbooked).
+LOCATION:Jinghong\, Xishuangbanna
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:● ATBC 2026 — field trips
+DTSTART;VALUE=DATE:20260703
+DTEND;VALUE=DATE:20260704
+DTSTAMP:20260610T123128Z
+UID:china2026-james-08@patball1.github.io
+DESCRIPTION:Provisional - subject to confirmation (flights unbooked).
+LOCATION:Xishuangbanna
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:✈ Jinghong → Beijing (PKX)
+DTSTART;TZID=Asia/Shanghai:20260704T083000
+DTEND;TZID=Asia/Shanghai:20260704T121500
+DTSTAMP:20260610T123128Z
+UID:china2026-james-09@patball1.github.io
+DESCRIPTION:e.g. MU5715. Transfer to Haidian (~1.5h).\n\nProvisional - sub
+ ject to confirmation (flights unbooked).
+LOCATION:JHG → PKX
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:○ Beijing — prep / free
+DTSTART;VALUE=DATE:20260705
+DTEND;VALUE=DATE:20260706
+DTSTAMP:20260610T123128Z
+UID:china2026-james-10@patball1.github.io
+DESCRIPTION:Provisional - subject to confirmation (flights unbooked).
+LOCATION:Beijing
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:★ Tsinghua — informal talk + Le Yu
+DTSTART;VALUE=DATE:20260706
+DTEND;VALUE=DATE:20260707
+DTSTAMP:20260610T123128Z
+UID:china2026-james-11@patball1.github.io
+DESCRIPTION:Share draft manuscript\; Tessera plans.\n\nProvisional - subje
+ ct to confirmation (flights unbooked).
+LOCATION:Tsinghua University\, Haidian
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:✈ Beijing → London
+DTSTART;TZID=Asia/Shanghai:20260707T140000
+DTEND;TZID=Europe/London:20260707T174500
+DTSTAMP:20260610T123128Z
+UID:china2026-james-12@patball1.github.io
+DESCRIPTION:Could share David's CA937. Provisional.\n\nProvisional - subje
+ ct to confirmation (flights unbooked).
+LOCATION:PEK → LHR
+END:VEVENT
+END:VCALENDAR

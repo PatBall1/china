@@ -1,0 +1,74 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//china-trip//provisional calendar//EN
+X-WR-CALNAME:China 2026 — David
+BEGIN:VEVENT
+SUMMARY:✈ Munich → Beijing (CA962)
+DTSTART;TZID=Europe/Berlin:20260630T130000
+DTEND;TZID=Asia/Shanghai:20260701T044500
+DTSTAMP:20260610T123128Z
+UID:china2026-david-00@patball1.github.io
+DESCRIPTION:Air China CA962\, Boeing 777-300\, ~9h50.\n\nProvisional - sub
+ ject to confirmation (flights unbooked).
+LOCATION:MUC → PEK
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Check in — Beijing hotel (near Tsinghua)
+DTSTART;VALUE=DATE:20260701
+DTEND;VALUE=DATE:20260702
+DTSTAMP:20260610T123128Z
+UID:china2026-david-01@patball1.github.io
+DESCRIPTION:Hotel recommendation pending from Le Yu.\n\nProvisional - subj
+ ect to confirmation (flights unbooked).
+LOCATION:Haidian\, Beijing
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:○ Peking University (tentative)
+DTSTART;VALUE=DATE:20260702
+DTEND;VALUE=DATE:20260703
+DTSTAMP:20260610T123128Z
+UID:china2026-david-02@patball1.github.io
+DESCRIPTION:Not yet organised.\n\nProvisional - subject to confirmation (f
+ lights unbooked).
+LOCATION:Peking University
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:★ Tsinghua — David's talk + Le Yu
+DTSTART;VALUE=DATE:20260703
+DTEND;VALUE=DATE:20260704
+DTSTAMP:20260610T123128Z
+UID:china2026-david-03@patball1.github.io
+DESCRIPTION:Talk + conversation with students/staff.\n\nProvisional - subj
+ ect to confirmation (flights unbooked).
+LOCATION:Tsinghua University\, Haidian
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:○ Weekend (James arrives after ATBC)
+DTSTART;VALUE=DATE:20260704
+DTEND;VALUE=DATE:20260706
+DTSTAMP:20260610T123128Z
+UID:china2026-david-04@patball1.github.io
+DESCRIPTION:Provisional - subject to confirmation (flights unbooked).
+LOCATION:Beijing
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:● Tsinghua — more time with Le Yu
+DTSTART;VALUE=DATE:20260706
+DTEND;VALUE=DATE:20260707
+DTSTAMP:20260610T123128Z
+UID:china2026-david-05@patball1.github.io
+DESCRIPTION:James's informal talk.\n\nProvisional - subject to confirmatio
+ n (flights unbooked).
+LOCATION:Tsinghua University\, Haidian
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:✈ Beijing → London (CA937)
+DTSTART;TZID=Asia/Shanghai:20260707T140000
+DTEND;TZID=Europe/London:20260707T174500
+DTSTAMP:20260610T123128Z
+UID:china2026-david-06@patball1.github.io
+DESCRIPTION:Air China CA937\, ~11h. Provisional time.\n\nProvisional - sub
+ ject to confirmation (flights unbooked).
+LOCATION:PEK → LHR
+END:VEVENT
+END:VCALENDAR

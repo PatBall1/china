@@ -19,7 +19,9 @@ Dates above are the **working plan** — see [itinerary.md](itinerary.md) for de
 - [accommodation.md](accommodation.md) — hotels per city, who pays, deadlines.
 - [contacts.md](contacts.md) — everyone involved + emails/phones.
 - [budget.md](budget.md) — funding sources and expense tracker.
+- [schedule/calendar.md](schedule/calendar.md) — provisional day-grid + per-person calendars (James & David).
 - `schedule/` — per-city detailed schedules.
+- `calendar/` — importable `.ics` files ([james.ics](calendar/james.ics), [david.ics](calendar/david.ics)); regenerate with `python tools/make_calendar.py`.
 - `talks/` — talk titles, abstracts, slides notes.
 - `emails/` — draft replies ready to send.
 - `checklists/` — deadlines + pre-trip (visa, insurance, packing).

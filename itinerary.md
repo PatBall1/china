@@ -2,6 +2,8 @@
 
 Working plan. Times in local timezone (HK & mainland China are both UTC+8; UK is UTC+1 in summer).
 
+For a clear day-grid view of both travellers and importable calendar files, see [schedule/calendar.md](schedule/calendar.md) and [calendar/](calendar/) (`james.ics`, `david.ics`).
+
 Legend: [BOOKED] confirmed · [HOLD] tentative · [TODO] needs action
 
 ## Overview
