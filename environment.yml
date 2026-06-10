@@ -1,0 +1,11 @@
+name: china-trip
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - requests
+  - python-dotenv
+  - pandas
+  - icalendar
+  - rich
+  - tabulate
