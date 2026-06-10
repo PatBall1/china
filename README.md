@@ -23,7 +23,8 @@ Dates above are the **working plan** — see [itinerary.md](itinerary.md) for de
 - `talks/` — talk titles, abstracts, slides notes.
 - `emails/` — draft replies ready to send.
 - `checklists/` — deadlines + pre-trip (visa, insurance, packing).
-- `tools/flight_search.py` — query live fares (Skyscanner via RapidAPI).
+- `tools/optimize_flights.py` — Amadeus cost optimizer (flexible-date, multi-city, good-price flag).
+- `tools/flight_search.py` — secondary Skyscanner (RapidAPI) fare lookup.
 - `correspondence/` — source emails this plan is built from.
 
 ## Status dashboard
@@ -47,3 +48,24 @@ Env spec lives in [environment.yml](environment.yml). To recreate:
 ```bash
 mamba env create -f environment.yml
 ```
+
+## Flight cost optimization
+
+`tools/optimize_flights.py` uses the **Amadeus Self-Service API** to actually optimize cost:
+- flexible-date calendar search (cheapest day within each leg's allowed window),
+- open-jaw / multi-city comparison (one ticket vs separate one-ways) for James and David,
+- a "good price?" flag from Amadeus fare-quartile metrics.
+
+Setup:
+1. Create a free app at [developers.amadeus.com](https://developers.amadeus.com) → copy the API Key + Secret.
+2. `cp .env.example .env` and set `AMADEUS_CLIENT_ID` / `AMADEUS_CLIENT_SECRET` (and `AMADEUS_ENV=test` or `production`).
+3. Run it:
+
+```bash
+conda activate china-trip
+python tools/optimize_flights.py --dry-run          # no key needed; shows legs + estimates
+python tools/optimize_flights.py                    # live, both travellers
+python tools/optimize_flights.py --env production --window 3 --write   # update flights.md
+```
+
+Without keys it gracefully prints the planned legs and manual estimates. Results (and a CSV in `out/`) are written into the Optimizer section of [flights.md](flights.md). Secrets in `.env` are gitignored.
