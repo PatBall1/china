@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Flight fare lookup for the China 2026 trip, via a Skyscanner endpoint on RapidAPI.
+"""Flight fare lookup for the China 2026 trip, via the Air Scraper API on RapidAPI.
 
-Skyscanner's official API is partner-only, so this targets a community Skyscanner
-endpoint on RapidAPI (default host: sky-scanner3.p.rapidapi.com). Provide a key in
-.env (see .env.example). Without a key the script still prints the planned legs.
+Skyscanner's official API is partner-only, so this targets the Air Scraper
+(apiheya) endpoint on RapidAPI (default host: sky-scrapper.p.rapidapi.com). It
+resolves each IATA code to a (skyId, entityId) via /api/v1/flights/searchAirport,
+then queries /api/v1/flights/searchFlights. Provide a key in .env (see
+.env.example). Without a key the script still prints the planned legs.
 
 Usage:
     conda activate china-trip
@@ -14,9 +16,9 @@ Usage:
 
 Notes:
 - Fares are indicative for comparison only; book directly with the airline.
-- Different RapidAPI Skyscanner providers use slightly different schemas. This
-  script parses the common sky-scanner3 shape defensively and saves raw JSON to
-  out/ when it can't interpret a response, so you can adapt the parser.
+- The searchFlights endpoint is flaky (intermittent {"status": false} or an
+  "incomplete" empty session), so requests are retried; on persistent failure the
+  raw JSON is saved to out/raw_leg<N>.json for inspection.
 """
 from __future__ import annotations
 
@@ -24,6 +26,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -59,8 +62,9 @@ def load_config() -> dict:
     load_dotenv(ROOT / ".env")
     return {
         "key": os.getenv("RAPIDAPI_KEY"),
-        "host": os.getenv("RAPIDAPI_SKYSCANNER_HOST", "sky-scanner3.p.rapidapi.com"),
-        "market": os.getenv("SKYSCANNER_MARKET", "UK"),
+        # Air Scraper (apiheya). Older sky-scanner3 hosts use a different schema.
+        "host": os.getenv("RAPIDAPI_SKYSCANNER_HOST", "sky-scrapper.p.rapidapi.com"),
+        "country": os.getenv("SKYSCANNER_MARKET", "UK"),
         "currency": os.getenv("SKYSCANNER_CURRENCY", "GBP"),
         "locale": os.getenv("SKYSCANNER_LOCALE", "en-GB"),
     }
@@ -70,57 +74,91 @@ def _headers(cfg: dict) -> dict:
     return {"x-rapidapi-key": cfg["key"], "x-rapidapi-host": cfg["host"]}
 
 
-def resolve_entity(cfg: dict, query: str) -> str | None:
-    """Resolve an IATA code / place name to a Skyscanner entityId via auto-complete."""
-    url = f"https://{cfg['host']}/flights/auto-complete"
+def resolve_place(cfg: dict, query: str) -> tuple[str, str] | None:
+    """Resolve an IATA code to (skyId, entityId) via Air Scraper's searchAirport.
+
+    Prefers the AIRPORT whose skyId matches the IATA query; falls back to the
+    first airport, then the first result.
+    """
+    url = f"https://{cfg['host']}/api/v1/flights/searchAirport"
     try:
-        r = requests.get(url, headers=_headers(cfg), params={"query": query}, timeout=30)
+        r = requests.get(url, headers=_headers(cfg),
+                          params={"query": query, "locale": cfg["locale"]}, timeout=30)
         r.raise_for_status()
         data = r.json()
     except Exception as exc:  # noqa: BLE001
-        console.print(f"[yellow]auto-complete failed for {query}: {exc}[/yellow]")
+        console.print(f"[yellow]searchAirport failed for {query}: {exc}[/yellow]")
         return None
-    items = data.get("data") or data.get("places") or []
+    items = data.get("data") or []
+    want = query.strip().upper()
+    best = None
     for item in items:
-        pres = item.get("presentation", {})
-        nav = item.get("navigation", {}).get("relevantFlightParams", {})
-        ent = nav.get("entityId") or pres.get("id") or item.get("entityId")
-        if ent:
-            return str(ent)
-    return None
+        nav = item.get("navigation", {})
+        params = nav.get("relevantFlightParams", {})
+        sky = params.get("skyId")
+        ent = params.get("entityId")
+        if not sky or not ent:
+            continue
+        if str(sky).upper() == want and params.get("flightPlaceType") == "AIRPORT":
+            return str(sky), str(ent)
+        if best is None and (params.get("flightPlaceType") == "AIRPORT" or nav.get("entityType") == "AIRPORT"):
+            best = (str(sky), str(ent))
+        if best is None:
+            best = (str(sky), str(ent))
+    return best
 
 
-def search_one_way(cfg: dict, leg: Leg, top: int) -> list[dict]:
-    """Query one-way fares for a leg. Returns a list of simplified itineraries."""
-    origin_id = resolve_entity(cfg, leg.origin)
-    dest_id = resolve_entity(cfg, leg.dest)
-    if not origin_id or not dest_id:
-        console.print(f"[yellow]Could not resolve entity ids for {leg.origin}->{leg.dest}[/yellow]")
+def _itineraries(data: dict) -> list[dict]:
+    payload = data.get("data")
+    if isinstance(payload, dict):
+        return payload.get("itineraries") or []
+    return []
+
+
+def search_one_way(cfg: dict, leg: Leg, top: int, retries: int = 4) -> list[dict]:
+    """Query one-way fares for a leg via Air Scraper. Returns simplified itineraries."""
+    origin = resolve_place(cfg, leg.origin)
+    dest = resolve_place(cfg, leg.dest)
+    if not origin or not dest:
+        console.print(f"[yellow]Could not resolve skyId/entityId for {leg.origin}->{leg.dest}[/yellow]")
         return []
 
-    url = f"https://{cfg['host']}/flights/search-one-way"
+    url = f"https://{cfg['host']}/api/v1/flights/searchFlights"
     params = {
-        "fromEntityId": origin_id,
-        "toEntityId": dest_id,
-        "departDate": leg.date,
-        "market": cfg["market"],
+        "originSkyId": origin[0],
+        "destinationSkyId": dest[0],
+        "originEntityId": origin[1],
+        "destinationEntityId": dest[1],
+        "date": leg.date,
+        "adults": "1",
+        "sortBy": "best",
         "currency": cfg["currency"],
-        "locale": cfg["locale"],
+        "market": cfg["locale"],
+        "countryCode": cfg["country"],
     }
-    try:
-        r = requests.get(url, headers=_headers(cfg), params=params, timeout=60)
-        r.raise_for_status()
-        data = r.json()
-    except Exception as exc:  # noqa: BLE001
-        console.print(f"[red]search failed for {leg.label}: {exc}[/red]")
-        return []
+    # The endpoint is flaky: it intermittently returns {"status": false} or an
+    # "incomplete" session with zero itineraries. Retry a few times.
+    data: dict = {}
+    itineraries: list[dict] = []
+    for attempt in range(1, retries + 1):
+        try:
+            r = requests.get(url, headers=_headers(cfg), params=params, timeout=60)
+            r.raise_for_status()
+            data = r.json()
+        except Exception as exc:  # noqa: BLE001
+            console.print(f"[red]search failed for {leg.label} (attempt {attempt}): {exc}[/red]")
+            time.sleep(2)
+            continue
+        itineraries = _itineraries(data)
+        if itineraries:
+            break
+        time.sleep(2)
 
-    itineraries = (data.get("data") or {}).get("itineraries") or []
     if not itineraries:
         OUT.mkdir(exist_ok=True)
         dump = OUT / f"raw_leg{leg.n}.json"
         dump.write_text(json.dumps(data, indent=2))
-        console.print(f"[yellow]No itineraries parsed; raw response saved to {dump}[/yellow]")
+        console.print(f"[yellow]No itineraries for {leg.label} after {retries} tries; raw saved to {dump}[/yellow]")
         return []
 
     results = []
@@ -138,6 +176,8 @@ def search_one_way(cfg: dict, leg: Leg, top: int) -> list[dict]:
                 "carrier": carrier,
                 "duration": f"{dur // 60}h{dur % 60:02d}m" if isinstance(dur, int) else "?",
                 "stops": stops if stops is not None else "?",
+                "depart": (first.get("departure") or "")[11:16] or "?",
+                "arrive": (first.get("arrival") or "")[5:16].replace("T", " ") or "?",
             }
         )
 
@@ -159,13 +199,16 @@ def print_leg(leg: Leg, rows: list[dict], cfg: dict) -> None:
     table = Table(title=f"Leg {leg.n}: {leg.label}  ({leg.origin}->{leg.dest}, {leg.date})")
     table.add_column("Price", justify="right")
     table.add_column("Carrier")
+    table.add_column("Depart", justify="center")
+    table.add_column("Arrive", justify="center")
     table.add_column("Duration", justify="right")
     table.add_column("Stops", justify="center")
     if not rows:
-        table.add_row("—", "(no data — set RAPIDAPI_KEY in .env)", "—", "—")
+        table.add_row("—", "(no data — set RAPIDAPI_KEY in .env)", "—", "—", "—", "—")
     else:
         for row in rows:
-            table.add_row(str(row["price"]), row["carrier"], row["duration"], str(row["stops"]))
+            table.add_row(str(row["price"]), row["carrier"], row.get("depart", "?"),
+                          row.get("arrive", "?"), row["duration"], str(row["stops"]))
     console.print(table)
 
 
