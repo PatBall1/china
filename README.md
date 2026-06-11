@@ -9,6 +9,7 @@ Planning hub for James Ball's June–July 2026 trip: **Hong Kong (pre-ATBC works
 | 1 | Hong Kong | 23–27 Jun | Pre-ATBC mini-workshop (HKU); keynote AM 26 Jun |
 | 2 | Xishuangbanna (Jinghong) | 27 Jun – 4 Jul | ATBC 2026 (62nd annual meeting) |
 | 3 | Beijing | 4–7 Jul | Tsinghua visit with David Coomes (host: Le Yu) |
+| 4 | Thailand (Bangkok + Gulf islands) | ~8–14 Jul | Holiday extension (James only) |
 
 Dates above are the **working plan** — see [itinerary.md](itinerary.md) for detail and open questions.
 
@@ -22,6 +23,7 @@ Dates above are the **working plan** — see [itinerary.md](itinerary.md) for de
 - [schedule/calendar.md](schedule/calendar.md) — provisional day-grid + per-person calendars (James & David).
 - `schedule/` — per-city detailed schedules.
 - `calendar/` — importable `.ics` files ([james.ics](calendar/james.ics), [david.ics](calendar/david.ics)); regenerate with `python tools/make_calendar.py`.
+- `holiday/` — post-Beijing beach trip: [options.md](holiday/options.md) (menu) + [thailand.md](holiday/thailand.md) (recommended itinerary).
 - `talks/` — talk titles, abstracts, slides notes.
 - `emails/` — draft replies ready to send.
 - `checklists/` — deadlines + pre-trip (visa, insurance, packing).

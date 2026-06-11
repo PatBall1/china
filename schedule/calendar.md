@@ -23,7 +23,14 @@ Legend: ✈ flight · ★ talk/keynote · ● event · ○ free/buffer
 | 4 Jul | Sat | ✈ Jinghong → Beijing (PKX); check in | ○ Weekend (James arrives) |
 | 5 Jul | Sun | ○ Beijing — prep / free | ○ Weekend |
 | 6 Jul | Mon | ★ Tsinghua — James's informal talk | ● Tsinghua — more time with Le Yu |
-| 7 Jul | Tue | ✈ Beijing → London | ✈ Beijing → London (CA937, dep ~14:00) |
+| 7 Jul | Tue | ○ Beijing (or fly home w/ David if skipping holiday) | ✈ Beijing → London (CA631, dep 14:15) |
+| 8 Jul | Wed | ✈ Beijing → Bangkok *(holiday)* | — |
+| 9 Jul | Thu | ✈ Bangkok → Koh Samui; beach | — |
+| 10 Jul | Fri | ○ Koh Samui | — |
+| 11 Jul | Sat | ○ Koh Samui | — |
+| 12 Jul | Sun | ✈ Samui → Koh Phangan (ferry) | — |
+| 13 Jul | Mon | ○ Koh Phangan | — |
+| 14 Jul | Tue | ✈ Thailand → London | — |
 
 ## James — provisional itinerary
 - **Mon 22 Jun** ✈ Depart London LHR (overnight) → Hong Kong.
@@ -34,7 +41,13 @@ Legend: ✈ flight · ★ talk/keynote · ● event · ○ free/buffer
 - **Sat 4 Jul** ✈ Jinghong → Beijing (PKX); transfer to Haidian.
 - **Sun 5 Jul** ○ Beijing — talk prep / free.
 - **Mon 6 Jul** ★ Tsinghua — informal talk; time with Le Yu.
-- **Tue 7 Jul** ✈ Beijing → London.
+- **Tue 7 Jul** ○ Beijing (David flies home today; James extends — or shares CA631/CA937 if skipping the holiday).
+- **Wed 8 Jul** ✈ Beijing → Bangkok *(holiday begins; see [../holiday/thailand.md](../holiday/thailand.md))*.
+- **Thu 9 Jul** ✈ Bangkok → Koh Samui; beach.
+- **Fri 10 – Sat 11 Jul** ○ Koh Samui (beach clubs, day-trips, nightlife).
+- **Sun 12 Jul** ✈ Samui → Koh Phangan (fast ferry); chilled bays / party option.
+- **Mon 13 Jul** ○ Koh Phangan.
+- **Tue 14 Jul** ✈ Thailand → London (1-stop).
 
 ## David — provisional itinerary
 - **Tue 30 Jun** ✈ Depart Munich (Air China CA962, ~13:00).
@@ -43,9 +56,10 @@ Legend: ✈ flight · ★ talk/keynote · ● event · ○ free/buffer
 - **Fri 3 Jul** ★ Tsinghua — time with Le Yu; David's talk + students/staff/postdocs.
 - **Sat 4 – Sun 5 Jul** ○ Weekend; James arrives after ATBC.
 - **Mon 6 Jul** ● Tsinghua — more time with Le Yu (James's informal talk).
-- **Tue 7 Jul** ✈ Depart Beijing → London (Air China CA937, ~14:00–14:50).
+- **Tue 7 Jul** ✈ Depart Beijing → London Gatwick (Air China CA631, 14:15→18:25).
 
 ## Notes / to confirm
 - David's week is assumed **Tue 30 Jun → Tue 7 Jul** (his "Wed 04:45 arrive / Tue 14:15 leave"). Confirm with David.
-- James + David overlap in Beijing **6–7 Jul**; both could share Air China CA937 on the 7th.
+- James + David overlap in Beijing **6–7 Jul**. James then **extends into a Thailand holiday** (~8–14 Jul, James only — see [../holiday/thailand.md](../holiday/thailand.md)); if he skips it, he can share David's 7 Jul flight home (CA631) or take CA937 to Heathrow.
+- Holiday dates/lean are provisional and not yet in the `.ics` files — regenerate with `python tools/make_calendar.py` once finalised.
 - Flight times are provisional until booked (see [../flights.md](../flights.md)).

@@ -9,9 +9,11 @@ Legend: [BOOKED] confirmed · [HOLD] tentative · [TODO] needs action
 ## Overview
 
 ```
-London ──(~12h direct)──> Hong Kong ──(via Kunming)──> Jinghong ──(~3h40)──> Beijing ──(~11h)──> London
-  22 Jun                     23–27 Jun                  27 Jun–4 Jul          4–7 Jul
+London ─> Hong Kong ─(via Kunming)─> Jinghong ─> Beijing ─> Bangkok + Gulf islands ─> London
+ 22 Jun     23–27 Jun                27 Jun–4 Jul  4–8 Jul    ~8–14 Jul (holiday)
 ```
+
+(James extends into a Thailand beach trip after Beijing; David flies straight home 7 Jul. Holiday details: [holiday/options.md](holiday/options.md), [holiday/thailand.md](holiday/thailand.md).)
 
 ## Day by day
 
@@ -32,11 +34,21 @@ London ──(~12h direct)──> Hong Kong ──(via Kunming)──> Jinghong 
 - **Sat 4 Jul** — [TODO] Fly **JHG → Beijing (PKX)**. Arrive Beijing (weekend). Check in to Beijing hotel (near Tsinghua — pending Le Yu recommendation).
 - **Sun 5 Jul** — Free / informal time; prep for talk.
 - **Mon 6 Jul** — Time with Le Yu at Tsinghua; **James informal talk**. Discuss Tessera project + future collaborations.
-- **Tue 7 Jul** — [TODO] Depart Beijing for London (David's flight is 14:15; James return flexible — confirm).
+- **Tue 7 Jul** — [TODO] David departs Beijing for London (CA631, 14:15→Gatwick). James stays on (or shares the flight home if skipping the holiday).
+
+### Holiday extension — Thailand (James only) *(provisional)*
+See [holiday/thailand.md](holiday/thailand.md). Dates flexible (4 days to a week+).
+- **Wed 8 Jul** — [TODO] Fly **Beijing (PEK) → Bangkok (BKK)** (~6–7h). Night in Bangkok (Sukhumvit / Khao San).
+- **Thu 9 Jul** — [TODO] Fly **Bangkok → Koh Samui (USM)** (~1h15). Beach + Chaweng.
+- **Fri 10 – Sat 11 Jul** — Koh Samui (beach clubs, day-trips, nightlife).
+- **Sun 12 Jul** — Fast ferry **Samui → Koh Phangan** (~30–45 min). Chilled bays / low-key party nights.
+- **Mon 13 Jul** — Koh Phangan.
+- **Tue 14 Jul** — [TODO] Fly home **Samui/Bangkok → London** (1-stop, ~16–18h).
 
 ## Open questions / assumptions
 1. **Beijing dates** — **Confirmed** from David's itinerary: arrives **Wed 1 Jul** (Air China CA962, MUC 13:00→PEK 04:45+1) and departs **Tue 7 Jul** (Air China CA631, PEK 14:15→London Gatwick 18:25). James joins the weekend of 4–5 Jul after ATBC.
 2. **HK arrival date** — Assumed 23 Jun to use all 4 HKU-covered nights. Could arrive 24 Jun if preferred.
 3. **HK→Jinghong group flight** — HKU group travels together; confirm exact date/flight with Chuying (assumed 27 Jun).
-4. **Return from Beijing** — assumed 7 Jul. Open choice: travel with David on **CA631 to Gatwick** (14:15→18:25), take own **CA937 to Heathrow** (easier coach to Cambridge), or stay longer.
-5. **ATBC own talk** — slot/time from the ATBC acceptance not yet in this plan; add when known.
+4. **Return from Beijing** — now planned as a **Thailand holiday extension** (depart ~8 Jul, home ~14 Jul). Fallback if skipping it: travel with David on **CA631 to Gatwick** (14:15→18:25) on 7 Jul, or own **CA937 to Heathrow**.
+5. **Holiday dates/lean** — exact length (4 days–week+) and chill-vs-party lean to confirm; affects accommodation and the home flight date. See [holiday/thailand.md](holiday/thailand.md).
+6. **ATBC own talk** — slot/time from the ATBC acceptance not yet in this plan; add when known.
